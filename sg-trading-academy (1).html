@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S&G Trading Academy — Formación profesional en trading</title>
+  <meta name="description" content="Aprende a operar los mercados de Futuros y Forex con Sergi Eixeres y Giovanni. Formación práctica, técnica avanzada y comunidad sin fecha de caducidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --gold:#C9A84C;
+      --gold-light:#E8C97A;
+      --dark:#0D0D0D;
+      --dark2:#1A1A1A;
+      --dark3:#252525;
+      --text:#F0EDE6;
+      --muted:#8A8680;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.6}
+    h1,h2,h3,.logo{font-family:'Bebas Neue',sans-serif;letter-spacing:0.04em}
+
+    /* NAV */
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:0.5px solid rgba(201,168,76,0.2);position:sticky;top:0;background:rgba(13,13,13,0.95);backdrop-filter:blur(8px);z-index:100}
+    .logo{font-size:1.6rem;color:var(--gold);letter-spacing:0.12em}
+    .logo span{color:var(--text)}
+    nav ul{display:flex;gap:2rem;list-style:none}
+    nav ul a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s}
+    nav ul a:hover{color:var(--gold)}
+    .nav-cta{background:var(--gold);color:var(--dark)!important;padding:0.45rem 1.1rem;border-radius:4px;font-weight:500!important}
+
+    /* HERO */
+    .hero{padding:5rem 2.5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;border-bottom:0.5px solid rgba(201,168,76,0.1)}
+    .hero-eyebrow{font-size:0.75rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+    .hero h1{font-size:4.2rem;line-height:0.95;color:var(--text);margin-bottom:1.5rem}
+    .hero h1 em{font-style:normal;color:var(--gold)}
+    .hero p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:2rem;font-weight:300}
+    .btn-primary{display:inline-block;background:var(--gold);color:var(--dark);padding:0.8rem 2rem;font-weight:500;font-size:0.9rem;letter-spacing:0.04em;border-radius:4px;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s}
+    .btn-primary:hover{background:var(--gold-light)}
+    .btn-outline{display:inline-block;border:0.5px solid var(--gold);color:var(--gold);padding:0.8rem 2rem;font-weight:500;font-size:0.9rem;letter-spacing:0.04em;border-radius:4px;text-decoration:none;background:transparent;cursor:pointer;transition:all 0.2s;margin-left:1rem}
+    .btn-outline:hover{background:rgba(201,168,76,0.08)}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.15);border:0.5px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;margin-top:2.5rem}
+    .stat{background:var(--dark2);padding:1.2rem 1rem;text-align:center}
+    .stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--gold);letter-spacing:0.04em}
+    .stat-lbl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-top:0.2rem}
+    .hero-markets{background:var(--dark2);border:0.5px solid rgba(201,168,76,0.15);border-radius:12px;padding:2rem}
+    .hero-markets-title{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);margin-bottom:1rem}
+    .market-row{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;background:var(--dark3);border-radius:6px;border:0.5px solid rgba(255,255,255,0.05);margin-bottom:10px}
+    .market-row:last-child{margin-bottom:0}
+    .market-row span:first-child{font-size:0.85rem}
+    .market-badge{font-size:0.7rem;color:var(--gold);background:rgba(201,168,76,0.1);padding:2px 8px;border-radius:4px}
+
+    /* SECTIONS */
+    .section{padding:4rem 2.5rem}
+    .section-tag{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);font-weight:500;margin-bottom:0.6rem}
+    .section h2{font-size:2.8rem;color:var(--text);margin-bottom:0.5rem}
+    .section-sub{color:var(--muted);font-size:0.95rem;font-weight:300;max-width:560px;line-height:1.7}
+
+    /* MENTORS */
+    .mentors{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+    .mentor-card{background:var(--dark2);border:0.5px solid rgba(201,168,76,0.15);border-radius:10px;padding:1.8rem;position:relative;overflow:hidden}
+    .mentor-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+    .mentor-initial{width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,0.12);border:0.5px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold);margin-bottom:1rem}
+    .mentor-name{font-size:1.1rem;font-weight:500;color:var(--text);margin-bottom:0.2rem}
+    .mentor-role{font-size:0.78rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.8rem}
+    .mentor-bio{font-size:0.85rem;color:var(--muted);line-height:1.65;font-weight:300}
+    .mentor-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+    .tag{font-size:0.7rem;background:rgba(201,168,76,0.08);border:0.5px solid rgba(201,168,76,0.2);color:var(--gold);padding:3px 10px;border-radius:20px;letter-spacing:0.06em}
+
+    /* WHAT */
+    .what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}
+    .what-item{background:var(--dark2);border:0.5px solid rgba(255,255,255,0.06);border-radius:10px;padding:1.5rem}
+    .what-icon{width:36px;height:36px;border-radius:8px;background:rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:var(--gold);font-size:14px}
+    .what-item h3{font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:500;color:var(--text);margin-bottom:0.5rem}
+    .what-item p{font-size:0.8rem;color:var(--muted);line-height:1.6;font-weight:300}
+
+    /* PRICING */
+    .pricing{background:var(--dark);border-top:0.5px solid rgba(201,168,76,0.1);border-bottom:0.5px solid rgba(201,168,76,0.1)}
+    .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}
+    .plan{background:var(--dark2);border:0.5px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.8rem;display:flex;flex-direction:column}
+    .plan.featured{border:1.5px solid var(--gold);background:var(--dark3)}
+    .plan-badge{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.15em;background:var(--gold);color:var(--dark);padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:1rem;font-weight:500;align-self:flex-start}
+    .plan-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--text);letter-spacing:0.06em;margin-bottom:0.3rem}
+    .plan-price{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--gold);line-height:1;margin-bottom:0.2rem}
+    .plan-price sup{font-size:1.2rem}
+    .plan-period{font-size:0.75rem;color:var(--muted);margin-bottom:1.2rem}
+    .plan-divider{height:0.5px;background:rgba(255,255,255,0.07);margin:1.2rem 0}
+    .plan ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;flex:1;margin-bottom:1.5rem}
+    .plan ul li{font-size:0.82rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px;font-weight:300}
+    .plan ul li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0}
+    .plan-btn{background:transparent;border:0.5px solid rgba(201,168,76,0.4);color:var(--gold);padding:0.7rem;font-size:0.82rem;font-weight:500;border-radius:6px;cursor:pointer;letter-spacing:0.06em;transition:all 0.2s;font-family:'DM Sans',sans-serif;width:100%}
+    .plan-btn:hover{background:rgba(201,168,76,0.1)}
+    .plan.featured .plan-btn{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+    .plan.featured .plan-btn:hover{background:var(--gold-light)}
+
+    /* CONTACT */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:2.5rem;align-items:start}
+    .contact-info p{font-size:0.9rem;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:2rem}
+    .contact-line{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+    .contact-line-icon{width:32px;height:32px;border-radius:6px;background:rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;color:var(--gold);font-weight:500}
+    .contact-line-text{font-size:0.82rem;color:var(--text)}
+    .contact-line-lbl{font-size:0.7rem;color:var(--muted);display:block}
+    .form{background:var(--dark2);border:0.5px solid rgba(201,168,76,0.15);border-radius:12px;padding:2rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:1rem}
+    .form-group label{font-size:0.73rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);font-weight:500}
+    .form-group input,.form-group select,.form-group textarea{background:var(--dark3);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.7rem 0.9rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none;transition:border-color 0.2s;-webkit-appearance:none;width:100%}
+    .form-group input:focus,.form-group textarea:focus{border-color:rgba(201,168,76,0.5)}
+    .form-group select{color:var(--muted)}
+    .form-group textarea{resize:none;height:90px;font-weight:300}
+    .form-submit{width:100%;background:var(--gold);color:var(--dark);padding:0.85rem;font-size:0.88rem;font-weight:500;border:none;border-radius:6px;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;transition:background 0.2s;margin-top:0.5rem}
+    .form-submit:hover{background:var(--gold-light)}
+    .form-note{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.8rem}
+    #confirm{display:none;text-align:center;padding:2rem 1rem}
+    #confirm p{color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.8rem;margin-bottom:0.5rem}
+    #confirm small{color:var(--muted);font-size:0.82rem}
+
+    /* FOOTER */
+    footer{background:var(--dark2);border-top:0.5px solid rgba(201,168,76,0.1);padding:1.8rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:0.1em}
+    .footer-copy{font-size:0.75rem;color:var(--muted)}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav ul{display:none}
+      .hero{grid-template-columns:1fr;padding:3rem 1.5rem 2.5rem}
+      .hero h1{font-size:3rem}
+      .mentors,.what-grid,.plans,.contact-wrap{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .section{padding:3rem 1.5rem}
+      footer{flex-direction:column;gap:0.5rem;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">S<span>&amp;</span>G <span style="color:var(--muted);font-size:1rem;letter-spacing:0.06em">Trading Academy</span></div>
+  <ul>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#programa">Programa</a></li>
+    <li><a href="#precios">Precios</a></li>
+    <li><a href="#contacto" class="nav-cta">Empieza ya</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Formación profesional en trading</div>
+    <h1>Aprende a <em>operar</em> los mercados</h1>
+    <p>Formación práctica y personalizada en Futuros y Forex de la mano de traders activos. Técnica avanzada, psicología y comunidad sin fecha de caducidad.</p>
+    <a href="#contacto" class="btn-primary">Reserva tu plaza</a>
+    <a href="#programa" class="btn-outline">Ver programa</a>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">2</div><div class="stat-lbl">Traders activos</div></div>
+      <div class="stat"><div class="stat-num">Multi</div><div class="stat-lbl">Mercados</div></div>
+      <div class="stat"><div class="stat-num">Live</div><div class="stat-lbl">Sesiones en directo</div></div>
+    </div>
+  </div>
+  <div class="hero-markets">
+    <div class="hero-markets-title">Áreas de formación</div>
+    <div class="market-row"><span>Futuros</span><span class="market-badge">Incluido</span></div>
+    <div class="market-row"><span>Forex / Divisas</span><span class="market-badge">Incluido</span></div>
+    <div class="market-row"><span>Análisis técnico avanzado</span><span class="market-badge">Incluido</span></div>
+    <div class="market-row"><span>Gestión de riesgo</span><span class="market-badge">Incluido</span></div>
+    <div class="market-row"><span>Psicología del trading</span><span class="market-badge">Incluido</span></div>
+  </div>
+</section>
+
+<section class="section" id="nosotros">
+  <div class="section-tag">Quiénes somos</div>
+  <h2>Los mentores</h2>
+  <p class="section-sub">Unimos dos mundos para ofrecerte la formación definitiva. No somos solo mentores; somos traders activos que han decidido crear una comunidad sin fecha de caducidad.</p>
+  <div class="mentors">
+    <div class="mentor-card">
+      <div class="mentor-initial">SE</div>
+      <div class="mentor-name">Sergi Eixeres</div>
+      <div class="mentor-role">Fundador · Trader Profesional</div>
+      <div class="mentor-bio">Experto en la precisión y el volumen del mercado de Futuros. En S&amp;G Academy fusionamos la técnica más avanzada con la psicología necesaria para sobrevivir y ganar. Tu éxito no tiene límite de tiempo, nuestra formación tampoco.</div>
+      <div class="mentor-tags"><span class="tag">Futuros</span><span class="tag">Price Action</span><span class="tag">Volumen</span><span class="tag">Psicología</span></div>
+    </div>
+    <div class="mentor-card">
+      <div class="mentor-initial">G</div>
+      <div class="mentor-name">Giovanni</div>
+      <div class="mentor-role">Co-fundador · Estratega Forex</div>
+      <div class="mentor-bio">Estratega en la liquidez y tendencias de Forex. Combina el análisis de flujo institucional con estructuras de mercado para identificar las oportunidades de mayor probabilidad en divisas.</div>
+      <div class="mentor-tags"><span class="tag">Forex</span><span class="tag">Liquidez</span><span class="tag">Institucional</span><span class="tag">Tendencias</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="programa" style="background:var(--dark2);border-top:0.5px solid rgba(201,168,76,0.08);border-bottom:0.5px solid rgba(201,168,76,0.08)">
+  <div class="section-tag">El programa</div>
+  <h2>Qué aprenderás</h2>
+  <p class="section-sub">Un itinerario completo desde los fundamentos hasta estrategias avanzadas que puedes aplicar desde el primer día.</p>
+  <div class="what-grid">
+    <div class="what-item"><div class="what-icon">&#9654;</div><h3>Fundamentos de los mercados</h3><p>Cómo funcionan los distintos mercados, participantes, liquidez y horarios clave.</p></div>
+    <div class="what-item"><div class="what-icon">&#9650;</div><h3>Análisis técnico avanzado</h3><p>Lectura de gráficos, estructura de mercado, soportes, resistencias y patrones de precio.</p></div>
+    <div class="what-item"><div class="what-icon">&#9632;</div><h3>Gestión del riesgo</h3><p>Dimensionamiento de posiciones, ratio riesgo-beneficio y control del drawdown.</p></div>
+    <div class="what-item"><div class="what-icon">&#9670;</div><h3>Estrategias operativas</h3><p>Sistemas de trading probados con criterios de entrada, salida y gestión activa.</p></div>
+    <div class="what-item"><div class="what-icon">&#9633;</div><h3>Sesiones en directo</h3><p>Operativa en tiempo real junto a los mentores para ver la aplicación práctica.</p></div>
+    <div class="what-item"><div class="what-icon">&#9651;</div><h3>Psicología y mentalidad</h3><p>Las herramientas mentales imprescindibles para operar con disciplina y consistencia.</p></div>
+  </div>
+</section>
+
+<section class="section pricing" id="precios">
+  <div class="section-tag">Planes</div>
+  <h2>Elige tu nivel</h2>
+  <p class="section-sub">Todos los planes incluyen acceso a los mentores y a la comunidad privada sin fecha de caducidad.</p>
+  <div class="plans">
+    <div class="plan">
+      <div class="plan-name">Básico</div>
+      <div class="plan-price">99<sup>€</sup></div>
+      <div class="plan-period">/ mes</div>
+      <div class="plan-divider"></div>
+      <ul>
+        <li>Material teórico completo</li>
+        <li>Acceso a comunidad privada</li>
+        <li>Análisis semanales</li>
+        <li>1 sesión grupal al mes</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">Más popular</div>
+      <div class="plan-name">Pro</div>
+      <div class="plan-price">199<sup>€</sup></div>
+      <div class="plan-period">/ mes</div>
+      <div class="plan-divider"></div>
+      <ul>
+        <li>Todo lo del plan Básico</li>
+        <li>Sesiones en directo semanales</li>
+        <li>Revisión de operativas</li>
+        <li>Soporte por WhatsApp</li>
+        <li>Acceso a grabaciones</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
+    </div>
+    <div class="plan">
+      <div class="plan-name">Elite</div>
+      <div class="plan-price">299<sup>€</sup></div>
+      <div class="plan-period">/ mes</div>
+      <div class="plan-divider"></div>
+      <ul>
+        <li>Todo lo del plan Pro</li>
+        <li>Mentoría 1 a 1 mensual</li>
+        <li>Plan de trading personalizado</li>
+        <li>Acceso prioritario a los mentores</li>
+        <li>Revisión de diario de trading</li>
+      </ul>
+      <button class="plan-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Empezar ahora</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="section-tag">Contacto</div>
+  <h2>Reserva tu plaza</h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p>Las plazas son limitadas para garantizar una atención de calidad. Rellena el formulario y nos pondremos en contacto contigo en menos de 24 horas.</p>
+      <div class="contact-line">
+        <div class="contact-line-icon">@</div>
+        <div><span class="contact-line-lbl">Email</span><div class="contact-line-text">seixeres@gmail.com</div></div>
+      </div>
+      <div class="contact-line">
+        <div class="contact-line-icon">WA</div>
+        <div><span class="contact-line-lbl">WhatsApp</span><div class="contact-line-text">+34 722 88 92 13</div></div>
+      </div>
+      <div class="contact-line">
+        <div class="contact-line-icon">IG</div>
+        <div><span class="contact-line-lbl">Instagram</span><div class="contact-line-text"><a href="https://instagram.com/seixeres" style="color:var(--text);text-decoration:none">@seixeres</a></div></div>
+      </div>
+    </div>
+    <div class="form" id="form-wrap">
+      <div id="form-content">
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" id="f-name" placeholder="Tu nombre"></div>
+          <div class="form-group"><label>Apellido</label><input type="text" id="f-surname" placeholder="Tu apellido"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="tu@email.com"></div>
+        <div class="form-group"><label>Plan de interés</label>
+          <select id="f-plan">
+            <option value="" disabled selected>Selecciona un plan...</option>
+            <option>Básico — 99€/mes</option>
+            <option>Pro — 199€/mes</option>
+            <option>Elite — 299€/mes</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Mensaje (opcional)</label><textarea id="f-msg" placeholder="Cuéntanos un poco sobre tu experiencia o dudas..."></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Solicitar información →</button>
+        <div class="form-note">Te responderemos en menos de 24h. Sin compromiso.</div>
+      </div>
+      <div id="confirm">
+        <p>¡Solicitud enviada!</p>
+        <small>Gracias por tu interés. Sergi o Giovanni se pondrán en contacto contigo muy pronto.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">S&amp;G Trading Academy</div>
+  <div class="footer-copy">© 2026 S&amp;G Trading Academy · Sergi Eixeres · Todos los derechos reservados</div>
+</footer>
+
+<script>
+async function submitForm(){
+  var n=document.getElementById('f-name').value.trim();
+  var surname=document.getElementById('f-surname').value.trim();
+  var e=document.getElementById('f-email').value.trim();
+  var p=document.getElementById('f-plan').value;
+  var msg=document.getElementById('f-msg').value.trim();
+  if(!n||!e||!p){alert('Por favor rellena los campos obligatorios.');return;}
+  var btn=document.querySelector('.form-submit');
+  btn.textContent='Enviando...';
+  btn.disabled=true;
+  try{
+    var res=await fetch('https://formspree.io/f/mojydopk',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({nombre:n,apellido:surname,email:e,plan:p,mensaje:msg})
+    });
+    if(res.ok){
+      document.getElementById('form-content').style.display='none';
+      document.getElementById('confirm').style.display='block';
+    } else {
+      alert('Ha habido un error. Por favor escríbenos directamente a seixeres@gmail.com');
+      btn.textContent='Solicitar información →';
+      btn.disabled=false;
+    }
+  } catch(err){
+    alert('Ha habido un error. Por favor escríbenos directamente a seixeres@gmail.com');
+    btn.textContent='Solicitar información →';
+    btn.disabled=false;
+  }
+}
+</script>
+</body>
+</html>
